@@ -19,7 +19,7 @@ style B fill:orange,color:black,stroke:#333,stroke-width:1px
 ```
 **Phases of penetration testing**
 ```mermaid
-graph TB
+graph LR
 A(Reconnance) --> B(Scanning)
 B --> C(Gaining Access)
 C --> D(Maintaining Access)
@@ -32,6 +32,4 @@ style C fill:lightgreen,color:black,stroke-width:1px
 style D fill:lightgreen,color:black,stroke-width:1px
 style E fill:lightgreen,color:black,stroke-width:1px
 style F fill:orange,color:black,stroke-width:1px
-```
-style F fill:orange,stroke:#333,stroke-width:1px
 ```
