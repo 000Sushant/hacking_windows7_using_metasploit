@@ -22,4 +22,4 @@ E --> F(Reporting)
 ```
 
 Inline-style: 
-![alt text](https://github.com/000Sushant/metasploit_docs/pentest.png "pen testing phases")
+![alt text](https://github.com/000Sushant/metasploit_docs/blob/main/pentest.png "pen testing phases")
