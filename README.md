@@ -9,7 +9,7 @@ Cobalt strike – closed source/ commercial use only
 It supports and provides sufficient tools for almost all the phases of the penetration testing.
 
 **Phases of Penetration Testing:**
-Metasploit support - green
+Metasploit support - green <br>
 Commercial version only - yellow
 ```mermaid
 
@@ -20,3 +20,6 @@ C --> D(Maintaining Access)
 D --> E(Clearing Tracks)
 E --> F(Reporting)
 ```
+
+Inline-style: 
+![alt text](https://github.com/000Sushant/metasploit_docs/pentest.png "pen testing phases")
