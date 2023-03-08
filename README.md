@@ -1,11 +1,11 @@
 # Metasploit
 
-Metasploit is a exploitation framework (aka penetration framework) , build for security professional to support penetration testing.
+Metasploit is an exploitation framework (aka penetration framework) , build for security professional to support penetration testing.
 
-**Most related alternative** <br>
+**Most related alternative**
 Cobalt strike – closed source/ commercial use only
 
-## Why prefer Metasploit? <br>
+## Why prefer Metasploit?
 It supports and provides sufficient tools for almost all the phases of the penetration testing.
 
 **Notations**
@@ -47,3 +47,11 @@ style F fill:orange,color:black,stroke-width:1px
 - NOPS – no operation, use to ensure that if using multiple payloads, it is of same size. It ensures the proper execution of the instructions.
 
 ## How to Get Started?
+
+### Metasploit framework could be accessed through
+
+ - Msfconsole
+ - Armitage
+
+
+**\#Note:** In case you are using any pen-testing OS like [Kali Linux](https://www.kali.org/) or [Parrot Security](https://www.parrotsec.org/), Metasploit  framework comes pre-installed with Msfconsole in them. 
