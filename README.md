@@ -3,6 +3,7 @@
 Metasploit is an exploitation framework (aka penetration framework) , build for security professional to support penetration testing.
 
 **Most related alternative**
+
 Cobalt strike – closed source/ commercial use only
 
 ## Why prefer Metasploit?
@@ -77,6 +78,7 @@ sudo msfconsole
 ```
 
 **Finding the Target's IP**
+
 Find your eth0 IP address, to identify subnet to scan, because as the target machine is connected with the same router, it must be in the same subnet as well.
 ```bash
 msf> ifconfig
@@ -97,6 +99,7 @@ we found the IP address of the target machine.
 Target IP: 192.168.126.132
 
 **Finding Vulnerability in Target Machine**
+
 Checking if the current version of OS the target machine is running on is having any publicly known vulnerability. This can be achieved by nmap script scan.
 ```bash
 msf> nmap --script="vuln" 192.168.126.132
@@ -106,6 +109,7 @@ msf> nmap --script="vuln" 192.168.126.132
 We identified that the target's machine is vulnerable for remote code execution, by the exploit smb-vuln-ms17-010. more details could be gathered from [CVE-2017-0143](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143).
 
 **Searching and Setting up the Exploit**
+
 
 
  
