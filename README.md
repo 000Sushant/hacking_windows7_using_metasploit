@@ -48,10 +48,62 @@ style F fill:orange,color:black,stroke-width:1px
 
 ## How to Get Started?
 
-### Metasploit framework could be accessed through
+### Metasploit Framework is Accessible Through:
 
- - Msfconsole
+ - Msfconsole [Metasploit Unleashed (offsec.com)](https://www.offsec.com/metasploit-unleashed/msfconsole/)
  - Armitage
 
 
-**\#Note:** In case you are using any pen-testing OS like [Kali Linux](https://www.kali.org/) or [Parrot Security](https://www.parrotsec.org/), Metasploit  framework comes pre-installed with Msfconsole in them. 
+**\#NOTE:** In case you are using any pen-testing OS like [Kali Linux](https://www.kali.org/) or [Parrot Security](https://www.parrotsec.org/), Metasploit  framework comes pre-installed with Msfconsole in them. 
+
+
+## Penetrating Windows 7 Machine?
+
+**Attacker's Machine:** Kali Linux 2022.2
+
+**Target Machine:** Windows 7
+
+**Prerequisite:** 
+
+ - The environment is setup oracle vmware, in NAT connection 
+ - The firewall of the windows is already disabled in this demonstration
+ - The Attacker and Target machine is connected over the save network. i.e., they are in same subnet.  
+
+### Attacker Machine:
+****
+Open msfconsole
+```bash
+sudo msfconsole
+```
+
+**Finding the Target's IP**
+Find your eth0 IP address, to identify subnet to scan, because as the target machine is connected with the same router, it must be in the same subnet as well.
+```bash
+msf> ifconfig
+```
+Let attaker's IP: 192.168.126.128
+Running a simple no-port host discovery nmap scan on the sub-network to find the target's machine.
+```bash
+msf> nmap -sn 192.168.126.0/24
+```
+![scan 1  result](https://github.com/000Sushant/metasploit_docs/blob/main/scan1.png)
+one of this host could be the target machine we are looking for, so let's perform the osscan to be sure.
+```bash
+msf> nmap -O 192.168.126.0/24
+```
+![scan 2  result](https://github.com/000Sushant/metasploit_docs/blob/main/scan2.png)
+we found the IP address of the target machine.
+Target IP: 192.168.126.132
+
+**Finding Vulnerability in Target Machine**
+Checking if the current version of OS the target machine is running on is having any publicly known vulnerability. This can be achieved by nmap script scan.
+```bash
+msf> nmap --script="vuln" 192.168.126.132
+```
+![scan 3  result](https://github.com/000Sushant/metasploit_docs/blob/main/scan3.png)
+we identified that the target's machine is vulnerable for remote code execution, by the exploit smb-vuln-ms17-010. more details could be gathered from [CVE-2017-0143](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143).
+
+**Searching and Setting up the Exploit**
+
+
+ 
