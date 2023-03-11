@@ -87,7 +87,8 @@ Running a simple no-port host discovery nmap scan on the sub-network to find the
 msf> nmap -sn 192.168.126.0/24
 ```
 ![scan 1  result](https://github.com/000Sushant/metasploit_docs/blob/main/scan1.png)
-one of this host could be the target machine we are looking for, so let's perform the osscan to be sure.
+
+One of this host could be the target machine we are looking for, so let's perform the osscan to be sure.
 ```bash
 msf> nmap -O 192.168.126.0/24
 ```
@@ -101,7 +102,8 @@ Checking if the current version of OS the target machine is running on is having
 msf> nmap --script="vuln" 192.168.126.132
 ```
 ![scan 3  result](https://github.com/000Sushant/metasploit_docs/blob/main/scan3.png)
-we identified that the target's machine is vulnerable for remote code execution, by the exploit smb-vuln-ms17-010. more details could be gathered from [CVE-2017-0143](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143).
+
+We identified that the target's machine is vulnerable for remote code execution, by the exploit smb-vuln-ms17-010. more details could be gathered from [CVE-2017-0143](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143).
 
 **Searching and Setting up the Exploit**
 
