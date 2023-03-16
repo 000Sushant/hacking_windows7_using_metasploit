@@ -59,7 +59,7 @@ style F fill:orange,color:black,stroke-width:1px
 **NOTE:** In case you are using any pen-testing OS like [Kali Linux](https://www.kali.org/) or [Parrot Security](https://www.parrotsec.org/), Metasploit  framework comes pre-installed with Msfconsole in them. 
 
 
-## Penetrating Windows 7 Machine?
+## Hacking Windows 7 Machine?
 
 **Attacker's Machine:** Kali Linux 2022.2
 
