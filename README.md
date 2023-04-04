@@ -67,9 +67,9 @@ style F fill:orange,color:black,stroke-width:1px
 
 **Prerequisite:** 
 
- - The environment is setup oracle vmware, in NAT connection 
+ - The environment is setup in oracle vmware, with NAT connection 
  - The firewall of the windows is already disabled in this demonstration
- - The Attacker and Target machine is connected over the save network. i.e., they are in same subnet.  
+ - The Attacker and Target machine is connected over the same network. i.e., they are in the same subnet.  
 
 **NOTE: All steps written below will be performed in the atacker's machine**
 
